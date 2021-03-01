@@ -162,14 +162,17 @@
 
 .form-select--small,
 .form-select--date {
-    background-position: right spacing("third") top spacing("third");
-    background-size: remCalc(18px);
-    font-size: $input-small-fontSize;
-    height: $input-small-height;
-    line-height: 1rem;
-    max-width: 20rem;
+    background-position: right spacing("third") top (spacing("half")+spacing("third"));
+    background-size: remCalc(20px);
+    font-size: $input-small-fontSize + 3px;
+    height: $input-small-height + 2rem;
+    line-height: 3rem;
+    max-width: 28rem;
     padding: $input-small-padding;
     padding-right: $select-small-paddingRight;
+    background-color: rgba(48, 45, 45, 0.1);
+    border-color: transparent;
+    border-radius: 10px;
 }
 
 .form-select--short {
@@ -282,15 +285,19 @@
 //
 
 .form-option {
-    border: 1px solid stencilColor("input-border-color");
+    border: 2px solid stencilColor("input-border-color");
     color: stencilColor("form-label-font-color");
     cursor: pointer;
     display: inline-block;
     font-size: 0; // 2
     margin-bottom: spacing("third");
-    margin-right: spacing("third");
-    padding: 1px;
+    margin-top: spacing("third");
+    margin-right: spacing("fifth");
+    margin-left: spacing("fifth");
+    padding: 3px;
     transition: all 0.15s ease;
+    border-color: transparent;
+    border-radius: 10px;
 
     &:hover {
         border-color: stencilColor("input-border-color-active");
@@ -298,7 +305,9 @@
 
     .form-radio:checked + & {
         border-color: stencilColor("checkRadio-color");
-        box-shadow: 0 0 0 1px stencilColor("checkRadio-color");
+        // box-shadow: 0 0 0 2px stencilColor("checkRadio-color");
+        border: 2px solid stencilColor("checkRadio-color");
+        border-radius: 10px;
     }
 }
 

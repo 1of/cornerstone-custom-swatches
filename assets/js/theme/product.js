@@ -63,6 +63,60 @@ export default class Product extends PageManager {
         });
 
         this.productReviewHandler();
+
+      // Custom Dropdown events
+      if ($('.custom-swatch-select').length) {
+        $('.custom-swatch-select').each(function () {
+          let select = $(this);
+          const dropdownSelectId = $(this).attr('id');
+          const modalSwatch = $(this).find('.swatch-modal');
+          const dropdownSelectText = $(this).find('.selected-swatch');
+          const dropdownSelectColor = $(this).find('.selected-color');
+          const selectedColorOnHover = $(modalSwatch).find('.swatch-selected');
+          // Show custom swatches
+          $(this).on('click touch', () => {
+            const elId = $(modalSwatch).attr('id');
+            if ($(modalSwatch).css('display') === 'none') {
+              $(modalSwatch).show(100);
+              $(`.custom-swatch-select .swatch-modal:not(#${elId})`).hide(200);
+            } else {
+              $(modalSwatch).hide(200);
+            }
+          });
+          // Swatch On Mouseleave id needed
+          $(modalSwatch).mouseleave(function () {
+            // setTimeout(()=>{ $(this).hide(300); }, 3000);
+          });
+
+          // Swatch onHover & click
+          $(modalSwatch).find('.form-option-variant').each(function () {
+            $(this).hover(function () {
+              $(selectedColorOnHover).text(this.title);
+            });
+            // Swatch click
+            $(this).closest('.form-option-swatch').on('touchstart click', function(){
+              console.log(this);
+              const clone = $(this).children('.form-option-variant').clone();
+              $(dropdownSelectText).text($(clone).attr('title'));
+              $(dropdownSelectColor).html(clone);
+              $(select).css('padding-left', '45px');
+            });
+
+          });
+
+          // Click outside custom dropdown
+          const container = document.getElementById(dropdownSelectId);
+          if ($(container).length) {
+            document.addEventListener('click', function (event) {
+              if (container !== event.target && !container.contains(event.target)) {
+                $(modalSwatch).hide(200);
+              } else {
+                return
+              }
+            });
+          }
+        });
+      }
     }
 
     ariaDescribeReviewInputs($form) {

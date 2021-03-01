@@ -25,6 +25,7 @@ $second_value : str-slice($value_of_swatch_size, $position_of_x + 1);
 .form-option-variant--pattern {
     height: $second_value +"px";
     width: $first_value +"px";
+    border-radius: 5px;
 }
 
 .form-option-expanded {
