@@ -221,7 +221,12 @@
                 <input type="hidden" name="product_id" value="{{product.id}}"/>
                 <div data-product-option-change style="display:none;">
                     {{#each product.options}}
-                        {{{dynamicComponent 'components/products/options'}}}
+                        <!--Applying custom template for any swatch product option-->
+                        {{#if this.partial '===' 'swatch'}}
+                            {{> components/products/options/swatch-custom}}
+                        {{else}}
+                            {{{dynamicComponent 'components/products/options'}}}
+                        {{/if}}
                     {{/each}}
                 </div>
                 <div class="form-field form-field--stock{{#unless product.stock_level}} u-hiddenVisually{{/unless}}">

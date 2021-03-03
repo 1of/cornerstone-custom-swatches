@@ -8,6 +8,7 @@ import ProductDetails from './common/product-details';
 import videoGallery from './product/video-gallery';
 import { classifyForm } from './common/utils/form-utils';
 import modalFactory, { modalTypes } from './global/modal';
+import customSwatches from './product/swatches-custom';
 
 const { WRITE_REVIEW } = modalTypes;
 
@@ -63,6 +64,8 @@ export default class Product extends PageManager {
         });
 
         this.productReviewHandler();
+
+        customSwatches();
     }
 
     ariaDescribeReviewInputs($form) {

@@ -2,3 +2,5 @@ node_modules/
 assets/dist/*
 .stencil
 .idea/
+package-lock.json
+

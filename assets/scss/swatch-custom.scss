@@ -1,0 +1,81 @@
+.custom-swatch-select {
+    background-color: rgba(48, 45, 45, 0.1);
+    border-color: transparent;
+    border-radius: 10px;
+
+    &.form-select--small {
+        background-position: right spacing("third") top (spacing("half")+spacing("third"));
+        background-size: remCalc(20px);
+        font-size: $input-small-fontSize + 3px;
+        height: $input-small-height + 2rem;
+        line-height: 3rem;
+        max-width: 28rem;
+        background-color: rgba(48, 45, 45, 0.1);
+        border-color: transparent;
+        border-radius: 10px;
+    }
+
+    .form-option {
+        border: 2px solid stencilColor("input-border-color");
+        margin-top: spacing("third");
+        margin-right: spacing("fifth");
+        margin-left: spacing("fifth");
+        padding: 3px;
+        border-color: transparent;
+        border-radius: 10px;
+
+        &:hover {
+            border-color: #67AFCE;
+        }
+    }
+    .form-radio:checked + .form-option{
+        box-shadow: 0 0 0 1px #67AFCE;
+        border: 2px solid #67AFCE;
+        border-radius: 10px;
+    }
+
+    > .selected-color span{
+        position: absolute;
+        top: 1.4rem;
+        left: 10px;
+        width: 25px;
+        height: 18px;
+    }
+    .form-option-variant--color,
+    .form-option-variant--pattern {
+        height: 50px;
+        width: 50px;
+        border-radius: 5px;
+    }
+
+    .swatch-modal {
+        position: absolute;
+        top: $input-small-height + 2rem;
+        left: 0;
+        background: #fff;
+        border-style: solid;
+        border-width: 1px;
+        border-color: #8f8f8f;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
+        border-radius: 10px;
+        border-color: transparent;
+        line-height: 1;
+        z-index: 10;
+        width: 100%;
+        hr {
+            margin: 0;
+        }
+        .swatch-selected-txt {
+            height: $input-small-height + 2rem;
+            line-height: 3rem;
+            padding: $input-small-padding;
+        }
+    }
+    .swatch-selected {
+        font-weight: bold;
+    }
+    .swatch-container {
+        padding: 10px;
+    }
+}
+
