@@ -41,6 +41,7 @@
         width: 25px;
         height: 18px;
     }
+    // swatch dimensions
     .form-option-variant--color,
     .form-option-variant--pattern {
         height: 50px;
@@ -48,6 +49,7 @@
         border-radius: 5px;
     }
 
+    // Swatch modal
     .swatch-modal {
         position: absolute;
         top: $input-small-height + 2rem;
